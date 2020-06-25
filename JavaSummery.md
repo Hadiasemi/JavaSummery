@@ -40,5 +40,25 @@ num.add(1);
 num.get(0);
 
 
+//for loop - if nums is ArrayList
+for (int i = 0; i < nums.size(); i++){
+  //nums.get(i);
+}
+
+//for each loop
+for (int i: nums){
+  //do stuff with i
+}
+
+//for loop - if nums is Array
+for (int i = 0; i < nums.length i++){
+  //nums[i];
+}
+
+//for each loop
+for (int i: nums){
+  //do stuff with i
+}
+
 
 ```
