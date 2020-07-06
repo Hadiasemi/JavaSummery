@@ -21,9 +21,9 @@ header-includes:
 - \fancyfoot[R]{\thepage\ }
 - \renewcommand{\headrulewidth}{2pt}
 - \renewcommand{\footrulewidth}{2pt}
-- \fancyhead[L]{CPE 202}
+- \fancyhead[L]{CPE 203}
 - \fancyhead[R]{Hadi Asemi}
-- \fancyhead[C]{Algorithm}
+- \fancyhead[C]{Java}
 - \newlength\FHoffset
 - \setlength\FHoffset{1cm}
 
@@ -31,13 +31,30 @@ header-includes:
 ---
 \thispagestyle{fancy}
 
+# Array:
+
+```Java
+int[]array= new int[20]; // allocating memory for array. it will be fixed sized
+array[0]=5; //declaring first element array
+
+//for loop - if nums is Array
+for (int i = 0; i < nums.length i++){
+  //nums[i];
+}
+
+//for each loop
+for (int i: nums){
+  //do stuff with i
+}
+
+```
 # ArrayList:
 
 ```Java
 ArrayList<String>words=new ArrayList<String>();
-ArrayList<int>num=new ArrayList<int>();
+ArrayList<Integer>num=new ArrayList<int>();
 num.add(1);
-num.get(0);
+num.get(0); // we need put index
 
 
 //for loop - if nums is ArrayList
@@ -50,15 +67,23 @@ for (int i: nums){
   //do stuff with i
 }
 
-//for loop - if nums is Array
-for (int i = 0; i < nums.length i++){
-  //nums[i];
-}
+```
 
-//for each loop
-for (int i: nums){
-  //do stuff with i
-}
+# HashMap:
 
+```Java
+Map<String,String>myMap=new HashMap<>();
+
+// add key
+myMap.put("Hadi","21");
+
+// get the value of the key
+myMap.get("Hadi");
+
+// remove the key
+myMap.remove("Hadi");
+
+// clear whole Map
+myMap.clear();
 
 ```
