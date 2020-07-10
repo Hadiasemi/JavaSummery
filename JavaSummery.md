@@ -31,13 +31,23 @@ header-includes:
 ---
 \thispagestyle{fancy}
 
-# Diffinitions:
+# Definitions:
 
   * **OOP** is a programing technique that focuses on the data(=objects) and on the interfaces to that object.
 
   * **Classes:** A class is the template or blueprint from which objects are made.
 
-  * **Encapsulation(sometimes called information hiding)** is simply combining data and behavior in one package hiding the implementation details from the users of the objects.
+  * **Encapsulation(sometimes called information hiding):** is simply combining data and behavior in one package hiding the implementation details from the users of the objects.
+
+  * **Instance variables:** are variables defined in a class, but outside the body of methods.
+
+  * **Constructor:** in is a special method that is used to initialize objects.
+
+  * **Public:** is keyword which declares a member's access as public.
+
+  * **Private:** is a Java keyword which declares a member's access as private.
+
+  * **Static:** object belongs specifically to the class, instead of instances of that class.
 
   Three key characteristics of objects:
 
