@@ -35,19 +35,35 @@ header-includes:
 
   * **OOP** is a programing technique that focuses on the data(=objects) and on the interfaces to that object.
 
+  * **Object:** Is the instance of the class
+
   * **Classes:** A class is the template or blueprint from which objects are made.
 
+    * Static variable:
+
+      * Belong to the class
+
+      * Accessed by: ClassName.VARIABLE_NAME
+  * **Superclass:** class above another in a hierarchy of classses
+  
+  * **Subclass:** inherits form parent and is a version of the parent class
   * **Encapsulation(sometimes called information hiding):** is simply combining data and behavior in one package hiding the implementation details from the users of the objects.
 
-  * **Instance variables:** are variables defined in a class, but outside the body of methods.
+  * **Instance variables:** are variables defined in a class, but outside the body of methods. Instance variables are filled when each object is instantiated and belong the object.
+  * **Class Variables:** belongs to the class and the value in that variable is shared by every instance of the class by the class itself. 
 
-  * **Constructor:** in is a special method that is used to initialize objects.
+  * **Constructor:** set data's values
+
+  * **Methods:** Manipulate and access data
 
   * **Public:** is keyword which declares a member's access as public.
 
   * **Private:** is a Java keyword which declares a member's access as private.
 
   * **Static:** object belongs specifically to the class, instead of instances of that class.
+
+  * **Is-a:** inheritance/interfaces
+  * **has-a:** composition/aggresgation 
 
   Three key characteristics of objects:
 
@@ -170,4 +186,12 @@ public static void main(String[]args){
 
 }
 }
+```
+
+# **Overriding:**
+
+## **toString():**
+
+```Java
+  public String toString(){ return name;}
 ```
