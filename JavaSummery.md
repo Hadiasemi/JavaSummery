@@ -37,6 +37,8 @@ header-includes:
 
   * **Object:** Is the instance of the class
 
+  * **Object Class:** is the **_ultimate super class_**. Every class you ever make in Jave will automatically inherit from it.(equals, toString, and getClass)
+
   * **Classes:** A class is the template or blueprint from which objects are made.
 
     * Static variable:
@@ -194,4 +196,15 @@ public static void main(String[]args){
 
 ```Java
   public String toString(){ return name;}
+```
+
+## **equals:**
+
+```Java
+public boolean equals(Object o){
+  if (o==null){return false;}
+  if (o.getClass()!=this.getClass()){return false;}
+  Theater t=(Theater)o;
+  return t.seatingCapacity==seatingCapacity && t.numberTicket==numberTicket && t.name.eqals(name);
+}
 ```
