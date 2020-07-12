@@ -138,3 +138,36 @@ for(Map.Entry<String,String>entry:myMap.entrySet()){
 }
 
 ```
+## Example:
+
+```Java
+
+class Trainer{
+    private String id;
+    private String name;
+
+  public  Trainer(String id, String name)
+	{
+		this.id = id;
+		this.name = name;
+	}
+	public String getID() { return id; }
+	public String getName() { return name; }
+}
+public static void main(String[]args){
+
+  Map<String,Trainer> train=new HashMap<>();
+
+  train.put("red",new Trainer("40","Hadi"));
+  train.put("blue",new Trainer("401","Had"));
+  train.put("Yellow",new Trainer("402","Ha"));
+  train.put("black",new Trainer("403","H"));
+
+  for(Map.Entry<String,Trainer>data:train.entrySet()){
+
+    System.out.println("Color: "+(String)data.getKey()+" id: "+(String)data.getValue().getID());
+  }
+
+}
+}
+```
