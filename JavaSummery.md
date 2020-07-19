@@ -274,6 +274,9 @@ public boolean equals(Object o){
 
 # Upcasting and Downcasting:
 
+The right side should be less than or equal left side.
+
+We can not instenciate the interface.
 <!-- **Note:**
 
 1. Every time down casting, it is possible the code crash on run time.(**CR**) -->
