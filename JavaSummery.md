@@ -46,7 +46,6 @@ header-includes:
 	\end{center}
 	\begin{flushright}
 		\textsc{\large Hadi Asemi\\
-		 %G01049243\\
 		Jul 18,2020\\}
 	\end{flushright}
 \end{titlepage}
