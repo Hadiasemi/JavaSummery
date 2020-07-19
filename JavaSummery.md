@@ -1,12 +1,12 @@
 ---
-title: JavaSummery
-author: Hadi Asemi
-date:
-<!-- header-includes:
-  - \hypersetup{colorlinks=True,
-      allbordercolors={0 0 0},
-      pdfborderstyle={/S/U/W 1}
-    } -->
+# title: JavaSummery
+# author: Hadi Asemi
+# date:
+# <!-- header-includes:
+#   - \hypersetup{colorlinks=True,
+#       allbordercolors={0 0 0},
+#       pdfborderstyle={/S/U/W 1}
+#     } -->
 
 
 urlcolor: blue
@@ -29,6 +29,32 @@ header-includes:
 
 
 ---
+\begin{titlepage}
+	\begin{center}
+		\line(1,0){300}\\
+		[0.25in]
+		\huge{\bfseries CPE203}\\
+		[2mm]
+		\line(1,0){300}\\
+		[1.5cm]
+		\textsc{\LARGE Java Class}\\
+		[12.5cm]
+	
+		\textsc{\Large }\\
+		[4cm]
+		
+	\end{center}
+	\begin{flushright}
+		\textsc{\large Hadi Asemi\\
+		 %G01049243\\
+		Jul 18,2020\\}
+	\end{flushright}
+\end{titlepage}
+\tableofcontents
+\thispagestyle{empty}
+\cleardoublepage
+\newpage
+\setcounter{page}{1}
 \thispagestyle{fancy}
 
 # Definitions:
@@ -189,6 +215,44 @@ public static void main(String[]args){
 }
 }
 ```
+## Example:
+
+```Java
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+class ExampleMap
+{
+   public static List<String> highEnrollmentStudents(
+      Map<String, List<Course>> courseListsByStudentName, int unitThreshold)
+   {
+      List<String> overEnrolledStudents = new LinkedList<>();
+
+      /*
+         Build a list of the names of students currently enrolled
+         in a number of units strictly greater than the unitThreshold.
+      */
+
+      
+      
+      for(String name:courseListsByStudentName.keySet()){
+         int sum=0;
+         for(Course course:courseListsByStudentName.get(name)){
+            sum+=course.getNumUnits();
+         }
+         // int unit=courseListsByStudentName.get(name).getNumUnits();
+         if (sum>unitThreshold){
+            overEnrolledStudents.add(name);
+         }
+        
+      }
+
+      return overEnrolledStudents;      
+   }
+}
+```
 
 # **Overriding:**
 
@@ -208,3 +272,25 @@ public boolean equals(Object o){
   return t.seatingCapacity==seatingCapacity && t.numberTicket==numberTicket && t.name.eqals(name);
 }
 ```
+
+# Upcasting and Downcasting:
+
+<!-- **Note:**
+
+1. Every time down casting, it is possible the code crash on run time.(**CR**) -->
+
+**Will it compile:**
+
+* **Check the static types,** do they all match:
+
+  * Are you only calling the methods of the static type?
+
+  * Are you only passing in parameters of(or lower thatn) the expected static type.( You can  upcast here, but not implicity downcast)
+
+  * Is the left side >= the right?
+
+* Will it maybe crash:
+
+  * Did you have to explicityly downcast to call a method.
+
+  * Will it mybe work, but you don't know for sure becuase you didn't check?
