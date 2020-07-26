@@ -39,10 +39,10 @@ header-includes:
 		[1.5cm]
 		\textsc{\LARGE Java Class}\\
 		[12.5cm]
-	
+
 		\textsc{\Large }\\
 		[4cm]
-		
+
 	\end{center}
 	\begin{flushright}
 		\textsc{\large Hadi Asemi\\
@@ -72,12 +72,12 @@ header-includes:
 
       * Accessed by: ClassName.VARIABLE_NAME
   * **Superclass:** class above another in a hierarchy of classses
-  
+
   * **Subclass:** inherits form parent and is a version of the parent class
   * **Encapsulation(sometimes called information hiding):** is simply combining data and behavior in one package hiding the implementation details from the users of the objects.
 
   * **Instance variables:** are variables defined in a class, but outside the body of methods. Instance variables are filled when each object is instantiated and belong the object.
-  * **Class Variables:** belongs to the class and the value in that variable is shared by every instance of the class by the class itself. 
+  * **Class Variables:** belongs to the class and the value in that variable is shared by every instance of the class by the class itself.
 
   * **Constructor:** set data's values
 
@@ -90,7 +90,7 @@ header-includes:
   * **Static:** object belongs specifically to the class, instead of instances of that class.
 
   * **Is-a:** inheritance/interfaces
-  * **has-a:** composition/aggresgation 
+  * **has-a:** composition/aggresgation
 
   Three key characteristics of objects:
 
@@ -234,8 +234,8 @@ class ExampleMap
          in a number of units strictly greater than the unitThreshold.
       */
 
-      
-      
+
+
       for(String name:courseListsByStudentName.keySet()){
          int sum=0;
          for(Course course:courseListsByStudentName.get(name)){
@@ -245,7 +245,7 @@ class ExampleMap
          if (sum>unitThreshold){
             overEnrolledStudents.add(name);
          }
-        
+
       }
 
       return overEnrolledStudents;      
@@ -269,6 +269,20 @@ public boolean equals(Object o){
   if (o.getClass()!=this.getClass()){return false;}
   Theater t=(Theater)o;
   return t.seatingCapacity==seatingCapacity && t.numberTicket==numberTicket && t.name.eqals(name);
+}
+```
+**OR**
+
+```Java
+public boolean equals(Object o){
+  if (o==null){return false;}
+  if (o.getClass()!=this.getClass()){return false;}
+  Theater t=(Theater)o;
+	if(name==null)
+		result=t.name==null;
+	else
+		result=t.name.equals(name);
+  return result && t.seatingCapacity==seatingCapacity && t.numberTicket==numberTicket;
 }
 ```
 
@@ -296,3 +310,59 @@ We can not instenciate the interface.
   * Did you have to explicityly downcast to call a method.
 
   * Will it mybe work, but you don't know for sure becuase you didn't check?
+
+
+
+# **Super and Subclass:**
+
+```Java
+
+public class Vehicle{
+
+	private int maxSpeed=120;
+
+	public Vehicle(int maxSpeed){
+		this.maxSpeed=maxSpeed;
+	}
+
+	public void vroom(){
+		Sytem.out.println("Vromm vrom")
+	}
+	// Override the equals method
+	public boolean equals(Object o){
+	  if (o==null){return false;}
+	  if (o.getClass()!=this.getClass()){return false;}
+	  Vehicle t=(Vehicle)o;
+	  return t.maxSpeed==maxSpeed;
+	}
+	// Override toString method
+	public String toString(){
+		return "The Vehicle speed: "+ maxSpeed;
+	}
+}
+
+public class Car extends Vehicle{
+	private int doors;
+
+	public Car(int doors,int maxSpeed){
+		super(maxSpeed);
+		this.doors=doors;
+	}
+
+	public void display(){
+		System.out.println(super.maxSpeed)
+	}
+
+	public void vroom(){
+		super.vrom();
+	}
+	// Override equals method
+	public boolean equals(Object o){
+		return super.equals(o) && ((Car)o).doors==doors;
+	}
+	// Override toString method
+	public String toString(){
+		return super.toString()+"The number of doors"+doors;
+	}
+}
+```
