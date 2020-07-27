@@ -312,7 +312,6 @@ We can not instenciate the interface.
   * Will it mybe work, but you don't know for sure becuase you didn't check?
 
 
-
 # **Super and Subclass:**
 
 ```Java
