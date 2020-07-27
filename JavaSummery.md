@@ -360,6 +360,7 @@ public class Car extends Vehicle{
 	public boolean equals(Object o){
 		return super.equals(o) && ((Car)o).doors==doors;
 	}
+	
 	// Override toString method
 	public String toString(){
 		return super.toString()+"The number of doors"+doors;
