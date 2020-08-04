@@ -286,11 +286,36 @@ public boolean equals(Object o){
 }
 ```
 
+
+## Hash Code:
+
+```Java
+public int hashCode()
+	{
+			int hash = 1;
+
+			hash = hash * 31 + studentLoans; //can leave since int
+//cannot add double to int
+			hash = hash * 31 + ((Double)gpa).hashCode();
+			return hash;
+	}
+
+```
+
+**OR**
+
+```java
+public int hashCode()
+    {
+        return Objects.hash(studentLoans, gpa);
+    }
+```
+
 # Upcasting and Downcasting:
 
 The right side should be less than or equal left side.
 
-We can not instenciate the interface.
+We can not instantiate the interface.
 <!-- **Note:**
 
 1. Every time down casting, it is possible the code crash on run time.(**CR**) -->
@@ -301,15 +326,15 @@ We can not instenciate the interface.
 
   * Are you only calling the methods of the static type?
 
-  * Are you only passing in parameters of(or lower thatn) the expected static type.( You can  upcast here, but not implicity downcast)
+  * Are you only passing in parameters of(or lower than) the expected static type.( You can  upcast here, but not implicity downcast)
 
   * Is the left side >= the right?
 
 * Will it maybe crash:
 
-  * Did you have to explicityly downcast to call a method.
+  * Did you have to explicitly downcast to call a method.
 
-  * Will it mybe work, but you don't know for sure becuase you didn't check?
+  * Will it maybe work, but you don't know for sure because you didn't check?
 
 
 # **Super and Subclass:**
@@ -334,6 +359,7 @@ public class Vehicle{
 	  Vehicle t=(Vehicle)o;
 	  return t.maxSpeed==maxSpeed;
 	}
+
 	// Override toString method
 	public String toString(){
 		return "The Vehicle speed: "+ maxSpeed;
@@ -359,9 +385,61 @@ public class Car extends Vehicle{
 	public boolean equals(Object o){
 		return super.equals(o) && ((Car)o).doors==doors;
 	}
+
 	// Override toString method
 	public String toString(){
 		return super.toString()+"The number of doors"+doors;
 	}
+
 }
+```
+# Comparable && Comparator:
+
+```java
+ // important note that Comparable is only input one Object
+public class Student implements Comparable<Student>{
+
+	private String lastName;
+	private String firstName;
+	private int age;
+	private double gpa;
+
+	public int compareTo(Student other){
+		return lastName.compareTo(other.lastName);
+	}
+}
+
+// Comparator implements two Objects
+public class StudentAgeComparator implements Comparator<Student>{
+   public int compare(Student s1, Student s2)
+   {
+   	  return s1.age() - s2.age(); //compare ascending order
+   }
+}
+
+public class StudentGpaComparator implements Comparator<Student>
+{
+	//compare reverse order
+   public int compare(Student s1, Student s2)
+   {
+   	  if (s1.gpa() >s2.gpa())
+   	     return -1;
+   	  else if (s1.gpa() < s2.gpa())
+   	  	 return 1;
+   	  else
+   	  	 return 0;
+   }
+}
+```
+
+for sorting we have to methods:
+
+```Java
+
+Collections.sort.(studentList);
+
+Arrays.sort(studentArray);
+
+Collections.sort(studentList, new StudentGpaComparator()); // we can specify which Comparator we want to use
+
 ```
