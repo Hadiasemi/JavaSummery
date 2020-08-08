@@ -287,7 +287,7 @@ public boolean equals(Object o){
 ```
 
 
-## Hash Code:
+## **Hash Code**:
 
 ```Java
 public int hashCode()
@@ -395,6 +395,8 @@ public class Car extends Vehicle{
 ```
 # Comparable && Comparator:
 
+This will compare the Objects and sort them. We need to  make a separate class for Comparator which they call functional interface which can hold only on abstract method.
+
 ```java
  // important note that Comparable is only input one Object
 public class Student implements Comparable<Student>{
@@ -441,5 +443,29 @@ Collections.sort.(studentList);
 Arrays.sort(studentArray);
 
 Collections.sort(studentList, new StudentGpaComparator()); // we can specify which Comparator we want to use
+
+```
+
+# Lambda:
+
+Unnamed chunk of code I can pass around. It is a shortcut to implement a functional interface's method. We can make comparator in just one line.
+
+```Java
+Comparator<Student> comp2=(Student s1, Student s2)->{return s1.age()-s2.age();};
+Collections.sort(studentList,comp2)
+
+//second way
+Comparator<Student> comp2=(s1,  s2)->s1.age()-s2.age();
+Comparator<Student> comp3=Comparator.comparing(s->s.age());
+Comparator<Student> comp4=Comparator.comparing(s::age());
+
+
+// Third way
+Collections.sort(studentList,(s1,  s2)->s1.age()-s2.age())
+
+
+Funtion<Student,String>f=Student::getName; // This have a return types
+Consumer<String>p=System.out::println; // Consumer don't have return types
+Consumer<String>p=s ->System.out.println(s);
 
 ```
