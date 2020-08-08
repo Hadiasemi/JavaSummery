@@ -467,5 +467,16 @@ Collections.sort(studentList,(s1,  s2)->s1.age()-s2.age())
 Funtion<Student,String>f=Student::getName; // This have a return types
 Consumer<String>p=System.out::println; // Consumer don't have return types
 Consumer<String>p=s ->System.out.println(s);
+```
 
+# Predicate:
+
+```Java
+public static void usePredicate(Predicate<Student> pred, Student s)
+{
+	if(pred.test(s))
+System.out.println(“yay”);
+else
+	System.out.println(“no!”);
+}
 ```
