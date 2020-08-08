@@ -471,9 +471,10 @@ Consumer<String>p=s ->System.out.println(s);
 
 # Predicate:
 
+
 ```Java
 public static void usePredicate(Predicate<Student> pred, Student s)
-{
+{	// .test(s) is method that check if the input value match with Predicate and return boolean
 	if(pred.test(s))
 System.out.println(“yay”);
 else
