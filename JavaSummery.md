@@ -274,16 +274,38 @@ public boolean equals(Object o){
 **OR**
 
 ```Java
-public boolean equals(Object o){
-  if (o==null){return false;}
-  if (o.getClass()!=this.getClass()){return false;}
-  Theater t=(Theater)o;
-	if(name==null)
-		result=t.name==null;
-	else
-		result=t.name.equals(name);
-  return result && t.seatingCapacity==seatingCapacity && t.numberTicket==numberTicket;
+
+private final String prefix;
+private final String number;
+private final int enrollment;
+private final LocalTime startTime;
+private final LocalTime endTime;
+
+public boolean equals(Object o) {
+	 if (o == null || getClass() != o.getClass()) return false;
+	 CourseSection that = (CourseSection) o;
+	 boolean result=true;
+	 if (prefix==null)
+			result=that.prefix==null;
+	 else
+			result=prefix.equals(that.prefix);
+	 if (number==null)
+			result=result && that.number==null;
+	 else
+			result= result && number.equals(that.number);
+	 if (startTime==null)
+			result= result && that.startTime == null;
+	 else
+			result= result && startTime.equals(that.startTime);
+	 if (endTime==null)
+			result= result && that.endTime==null;
+	 else
+			result= result && endTime.equals(that.endTime);
+
+	 return result && enrollment == that.enrollment;
+
 }
+
 ```
 
 
@@ -300,6 +322,33 @@ public int hashCode()
 			return hash;
 	}
 
+```
+
+**OR**
+
+```Java
+public int hashCode() {
+	 int hash=1;
+	 hash=hash *31+((prefix==null)?0:prefix.hashCode());
+	 hash=hash*31+((number==null)?0:number.hashCode());
+	 hash=hash*31+enrollment;
+	 hash=hash*31+((startTime==null)?0:startTime.hashCode());
+	 hash=hash*31+((endTime==null)?0:endTime.hashCode());
+	 return hash;
+}
+```
+
+**OR**
+
+```Java
+public int hashCode() {
+	 int hash=1;
+	 hash=hash *31+Objects.hashCode(surname);
+	 hash=hash*31+Objects.hashCode(givenName);
+	 hash=hash*31+age;
+	 hash=hash*31+Objects.hashCode(currentCourses);
+	 return hash;
+}
 ```
 
 **OR**
@@ -438,7 +487,7 @@ for sorting we have to methods:
 
 ```Java
 
-Collections.sort.(studentList);
+Collections.sort(studentList);
 
 Arrays.sort(studentArray);
 
@@ -453,17 +502,15 @@ Unnamed chunk of code I can pass around. It is a shortcut to implement a functio
 ```Java
 Comparator<Student> comp2=(Student s1, Student s2)->{return s1.age()-s2.age();};
 Collections.sort(studentList,comp2)
+Collections.sort(studentList,(s1,  s2)->s1.age()-s2.age());
 
-//second way
+//second way: Key extractor
 Comparator<Student> comp2=(s1,  s2)->s1.age()-s2.age();
 Comparator<Student> comp3=Comparator.comparing(s->s.age());
 Comparator<Student> comp4=Comparator.comparing(s::age());
 
 
 // Third way
-Collections.sort(studentList,(s1,  s2)->s1.age()-s2.age())
-
-
 Funtion<Student,String>f=Student::getName; // This have a return types
 Consumer<String>p=System.out::println; // Consumer don't have return types
 Consumer<String>p=s ->System.out.println(s);
@@ -476,15 +523,17 @@ Consumer<String>p=s ->System.out.println(s);
 public static void usePredicate(Predicate<Student> pred, Student s)
 {	// .test(s) is method that check if the input value match with Predicate and return boolean
 	if(pred.test(s))
-System.out.println(“yay”);
-else
-	System.out.println(“no!”);
+		System.out.println(“yay”);
+	else
+		System.out.println(“no!”);
 }
 ```
 
 # Stream:
 
 ```Java
+
+List<Student> theStudents = new ArrayList<>();
 List<Student> topStudents =
 	 theStudents.stream()
 			.filter(s -> s.getGpa() >= 3.5)
@@ -501,12 +550,15 @@ System.out.println("Average Student GPA: " +
 List<Student> raisedStudents =
 	 theStudents.stream()
 			.filter(s -> s.getGpa() < 2.75)
-			.map(s -> new Student(s.getName(),
-														s.getAge(),
-														s.getGpa() + .15))
+			.map(s -> new Student(s.getName(),s.getAge(),s.getGpa() + .15))
 			.collect(Collectors.toList());
 
-double avg = profs.stream().filter(Professor::hasTenure)
-			       			.mapToDouble(Professor::getMortgage).average().getAsDouble();
+double avg = profs.stream()
+				      .filter(Professor::hasTenure)
+			          .mapToDouble(Professor::getMortgage).average().getAsDouble();
 
 ```
+
+**The difference between Abstract, Interface, Concrete:**
+
+Interface and abstract class could not be instantiated, but in the concrete class we can instantiated. Interface only method are declared; however, in the abstract class we can have some abstract method and non-abstract method.
