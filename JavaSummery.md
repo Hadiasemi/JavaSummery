@@ -485,7 +485,7 @@ else
 # Stream:
 
 ```Java
-ist<Student> topStudents =
+List<Student> topStudents =
 	 theStudents.stream()
 			.filter(s -> s.getGpa() >= 3.5)
 			.collect(Collectors.toList());
@@ -505,5 +505,8 @@ List<Student> raisedStudents =
 														s.getAge(),
 														s.getGpa() + .15))
 			.collect(Collectors.toList());
+
+double avg = profs.stream().filter(Professor::hasTenure)
+			       			.mapToDouble(Professor::getMortgage).average().getAsDouble();
 
 ```
