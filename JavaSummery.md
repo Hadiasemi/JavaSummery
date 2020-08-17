@@ -481,3 +481,29 @@ else
 	System.out.println(“no!”);
 }
 ```
+
+# Stream:
+
+```Java
+ist<Student> topStudents =
+	 theStudents.stream()
+			.filter(s -> s.getGpa() >= 3.5)
+			.collect(Collectors.toList());
+
+topStudents.stream().forEach(PrintStudentName);
+
+System.out.println("Average Student GPA: " +  
+	 theStudents.stream()
+			.mapToDouble(Student::getGpa)
+			.sum()
+			/theStudents.size());
+
+List<Student> raisedStudents =
+	 theStudents.stream()
+			.filter(s -> s.getGpa() < 2.75)
+			.map(s -> new Student(s.getName(),
+														s.getAge(),
+														s.getGpa() + .15))
+			.collect(Collectors.toList());
+
+```
