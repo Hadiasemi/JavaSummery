@@ -79,6 +79,8 @@ header-includes:
   * **Instance variables:** are variables defined in a class, but outside the body of methods. Instance variables are filled when each object is instantiated and belong the object.
   * **Class Variables:** belongs to the class and the value in that variable is shared by every instance of the class by the class itself.
 
+	* **Instantiation:** the object is an instance of a class.
+
   * **Constructor:** set data's values
 
   * **Methods:** Manipulate and access data
@@ -88,6 +90,8 @@ header-includes:
   * **Private:** is a Java keyword which declares a member's access as private.
 
   * **Static:** object belongs specifically to the class, instead of instances of that class.
+
+	* **functional interface:** An interface with only one abstract method, so it can be implemented with a lambda.
 
   * **Is-a:** inheritance/interfaces
   * **has-a:** composition/aggresgation
@@ -136,7 +140,7 @@ num.remove(1);
 
 //for loop - if nums is ArrayList
 for (int i = 0; i < nums.size(); i++){
-  //nums.get(i);
+  nums.get(i);
 }
 
 //for each loop
