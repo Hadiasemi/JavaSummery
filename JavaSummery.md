@@ -565,4 +565,56 @@ double avg = profs.stream()
 
 **The difference between Abstract, Interface, Concrete:**
 
-Interface and abstract class could not be instantiated, but in the concrete class we can instantiated. Interface only method are declared; however, in the abstract class we can have some abstract method and non-abstract method.
+Interface and abstract class could not be instantiated, but in the concrete class we can instantiated. Interface only method
+are declared; however, in the abstract class we can have some abstract method and non-abstract method.
+
+# Try & Catch:
+
+**What is the difference between checked and unchecked?**
+
+For checked, the compiler makes you catch the error and / or report that an error might be thrown.  For unchecked, the compiler does not enforce those rules, so if not caught the program will crash.
+
+**Runtime exception:**
+
+* bad casting
+
+* out of bounds
+
+* null pointer
+
+These are the exception that we can handle it ourselves.
+
+**IOException:**
+
+This is not our fault. The complier could not open the file.
+
+**important:** the **Error** and **Runtime exception** are both unchecked and **IOException** is checked. The checked one the compiler force us to check that exception. We can throw it or we can use try & catch to handle it.
+
+
+**Example:**
+
+```java
+
+public class Circle
+{
+    public static final double PI = 3.14159;
+    private double radius;
+
+    public Circle()
+    {
+        Random rand = new Random();
+        radius = rand.nextDouble()*10;
+    }
+    public Circle(double radius) throws ZeroRadiusException,NegativeRadiusException
+    {   if (radius==0)
+            throw new ZeroRadiusException();
+        if(radius<0)
+            throw new NegativeRadiusException(radius);
+        this.radius=radius;
+    }
+
+    public double radius()
+    {
+        return radius;
+    }
+		```
