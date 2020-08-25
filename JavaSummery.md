@@ -79,22 +79,28 @@ header-includes:
   * **Instance variables:** are variables defined in a class, but outside the body of methods. Instance variables are filled when each object is instantiated and belong the object.
   * **Class Variables:** belongs to the class and the value in that variable is shared by every instance of the class by the class itself.
 
-	* **Instantiation:** the object is an instance of a class.
+  * **Interface:** abstract type used to specify  a behavior that subclasses must implement. Interfaces can't be instantiated and can have multiple inheritance as reasons you might choose them over a parent class. We use it to organize our code.
+	* An interface can hold static data: **True**
+	* An interface can hold non-static data: **False**
+	* An interface can hold implementation for static methods, but not non-static method implementation.: **True**
 
-  * **Constructor:** set data's values
+* **Instantiation:** the object is an instance of a class.
 
-  * **Methods:** Manipulate and access data
+* **Constructor:** set data's values
 
-  * **Public:** is keyword which declares a member's access as public.
+* **Methods:** Manipulate and access data
 
-  * **Private:** is a Java keyword which declares a member's access as private.
+* **Public:** is keyword which declares a member's access as public.
 
-  * **Static:** object belongs specifically to the class, instead of instances of that class.
+* **Private:** is a Java keyword which declares a member's access as private.
 
-	* **functional interface:** An interface with only one abstract method, so it can be implemented with a lambda.
+* **Static:** object belongs specifically to the class, instead of instances of that class.
 
-  * **Is-a:** inheritance/interfaces
-  * **has-a:** composition/aggresgation
+* **functional interface:** An interface with only one abstract method, so it can be implemented with a lambda.
+
+* **Is-a:** inheritance/interfaces
+
+* **has-a:** composition/aggresgation
 
   Three key characteristics of objects:
 
