@@ -275,6 +275,15 @@ public boolean equals(Object o){
   return t.seatingCapacity==seatingCapacity && t.numberTicket==numberTicket && t.name.eqals(name);
 }
 ```
+
+**OR**
+
+```Java
+ public boolean equals(){
+	 return super.equals(0) && mortgage == ((Professor)o).mortgage &&((Professor)o).tenure==tenure;
+ }
+ ```
+
 **OR**
 
 ```Java
@@ -512,6 +521,12 @@ Collections.sort(studentList,(s1,  s2)->s1.age()-s2.age());
 Comparator<Student> comp2=(s1,  s2)->s1.age()-s2.age();
 Comparator<Student> comp3=Comparator.comparing(s->s.age());
 Comparator<Student> comp4=Comparator.comparing(s::age());
+
+
+Comparator<Professor> comp1 = Comparator.comparing(Professor::hasTenure).reversed();
+Comparator<Professor> comp2 = Comparator.comparing(Professor::getName).reversed();
+Comparator<Professor> compFinal = comp1.thenComparing(comp2);
+
 
 
 // Third way
